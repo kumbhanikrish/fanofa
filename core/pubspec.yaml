@@ -1,0 +1,29 @@
+name: core
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  equatable: ^2.0.5
+  bloc: ^8.1.4
+  rxdart: ^0.28.0
+  url_launcher: ^6.3.0
+  path_provider: ^2.1.4
+  connectivity_plus: any
+  intl: ^0.19.0
+  app_links: ^6.3.2
+  #network:
+    #git:
+      #url: git@gitlab.com:ajay.p/elaunch-flutter-plugins.git
+      #path: packages/network
+  network:
+    path: ../network
+  dio: ^5.0.0
+
+dev_dependencies:
+  flutter_lints: ^2.0.1

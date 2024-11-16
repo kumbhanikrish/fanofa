@@ -1,0 +1,44 @@
+name: data
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core:
+    path: ../core
+  #network:
+    #git:
+      #url: git@gitlab.com:ajay.p/elaunch-flutter-plugins.git
+      #path: packages/network
+  network:
+    path: ../network
+  json_annotation: ^4.9.0
+  shared_preferences: ^2.3.2
+  package_info_plus: ^8.0.2
+  device_info_plus: ^10.1.2
+  socket_io_client: ^2.0.3+1
+  injectable: ^2.4.4
+  get_it: any
+  dio: ^5.7.0
+  drift: ^2.20.2
+  sqlite3_flutter_libs: ^0.5.24
+  sqflite: ^2.2.4+1
+  path: ^1.9.0
+  equatable: ^2.0.5
+  retry: ^3.1.2
+  mime: ^1.0.6
+  http_parser: any
+  analyzer: any
+
+
+dev_dependencies:
+  flutter_lints: ^2.0.1
+  build_runner: ^2.4.12
+  json_serializable: ^6.7.1
+  injectable_generator: ^2.1.4
+  drift_dev: ^2.5.2

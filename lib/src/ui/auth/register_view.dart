@@ -165,7 +165,7 @@ class _RegisterViewState extends State<RegisterView>
 
                           print("country:: ${country.displayName}");
                         },
-                      )
+                      ),
                     ],
                   ),
                 )
@@ -206,6 +206,7 @@ class _RegisterViewState extends State<RegisterView>
                 const Gap(11),
                 PrimaryButton(
                   onPressed: () {
+                  //  cubit.register();
                     context.navigator.pushNamed(CompleteProfileView.routeName);
                     /*showModalBottomSheet(
                       enableDrag: true,

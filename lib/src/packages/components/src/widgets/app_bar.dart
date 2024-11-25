@@ -1,3 +1,5 @@
+import 'package:core/core.dart';
+import 'package:data/data.config.dart';
 import 'package:fanofa/src/packages/resouces/resources.dart';
 import 'package:flutter/material.dart';
 
@@ -73,14 +75,17 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? InkWell(
               onTap: onTapBack ?? () => Navigator.of(context).maybePop(),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: ImageFromAsset(
-                  AppIcons.iconLeft,
-                  //fit: BoxFit.cover,
-                  //height: 10,
-                  //width: 35,
-                 // fit: BoxFit.fitWidth,
-                  color: Theme.of(context).colorScheme.onPrimary,
+                padding: const EdgeInsets.only(left: 15.0),
+                child: CircleAvatar(
+                  radius: 28,
+                  backgroundColor: context.colorScheme.primaryFixedDim,
+                  child: const SvgImageFromAsset(
+                    AppIcons.backIcon,
+                    //fit: BoxFit.cover,
+                    //height: 10,
+                    //width: 35,
+                   // fit: BoxFit.fitWidth,
+                  ),
                 ),
               ),
             )

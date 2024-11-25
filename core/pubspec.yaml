@@ -23,7 +23,13 @@ dependencies:
       #path: packages/network
   network:
     path: ../network
+  data:
+    path : ../data
+
+
+
   dio: ^5.0.0
 
 dev_dependencies:
   flutter_lints: ^2.0.1
+

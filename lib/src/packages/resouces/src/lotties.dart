@@ -1,6 +1,6 @@
-abstract class LottiIcons{
-  static const _path = 'assets/lotties/';
-  static const String noData = '${_path}no_data.gif';
+abstract class GifsIcons{
+  static const _path = 'assets/gifs/';
+  static const String loader = '${_path}Loading.gif';
 
 
 }

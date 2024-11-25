@@ -61,14 +61,14 @@ abstract class BaseRepository with LogMixin {
           if (error.error is TokenExpiredException) {
             return processApiRequest(request);
           } else if (error.error is io.SocketException || error.error is io.HttpException) {
-            _handleInternetConnectionException(request, error);
+            InternetConnectionException(message: "Please Check Your Internet connection");
           } else {
             var apiException = handleDioException(error);
             if (apiException != null) throw apiException;
           }
           break;
         case io.SocketException() || io.HttpException():
-          _handleInternetConnectionException(request, error);
+          InternetConnectionException(message: "Please Check Your Internet connection");
         default:
           printError(error);
           printError(stacktrace);
@@ -80,7 +80,7 @@ abstract class BaseRepository with LogMixin {
   Future<T?> _handleInternetConnectionException<T>(ApiRequest<T> request, Object error) async {
     final cachedResponse = await _getResponseFromCache(request);
     if (cachedResponse != null) return cachedResponse.data;
-    throw InternetConnectionException(message: error.toString());
+    throw InternetConnectionException(message: "Please Check Your Internet connection");
   }
 
   Stream<DataEvent<T>> _getResponseFromNetwork<T>(
@@ -107,14 +107,14 @@ abstract class BaseRepository with LogMixin {
           if (error.error is TokenExpiredException) {
             yield* processApi(request);
           } else if (error.error is io.SocketException || error.error is io.HttpException) {
-            yield FailureEvent(InternetConnectionException(message: error.error.toString()));
+            yield FailureEvent(InternetConnectionException(message: "Please Check Your Internet connection"));
           } else {
             var apiException = handleDioException(error);
             if (apiException != null) yield FailureEvent(apiException);
           }
           break;
         case io.SocketException() || io.HttpException():
-          yield FailureEvent(InternetConnectionException(message: error.toString()));
+          yield FailureEvent(InternetConnectionException(message: "Please Check Your Internet connection"));
           break;
         default:
           printError(error);
@@ -134,7 +134,7 @@ abstract class BaseRepository with LogMixin {
   ApiException? handleDioException(DioException dioException) {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
-        return const InternetConnectionException();
+        return const InternetConnectionException(message: "Please Check Your Internet Connection");
       case DioExceptionType.sendTimeout:
       case DioExceptionType.receiveTimeout:
         return const TimeoutException();
@@ -162,19 +162,20 @@ abstract class BaseRepository with LogMixin {
     String? result;
     List<Map<String, dynamic>>? errors;
     final responseData = dioException.response?.data;
+    print("responseData :: $responseData");
     if (responseData is Map<String, dynamic>) {
-      if (responseData['message'] is String) message = responseData['message'];
+      if (responseData['error'] is String) message = responseData['error'];
 
-      if (responseData['errors'] is List) {
-        errors = (responseData['errors'] as List).map((dynamic item) {
+      if (responseData['error'] is List) {
+        errors = (responseData['error'] as List).map((dynamic item) {
           if (item is Map<String, dynamic>) {
             return Map<String, dynamic>.from(item);
           }
           return <String, dynamic>{};
         }).toList();
       }
-      if (responseData['result'] is String) result = responseData['result'];
+     // if (responseData['result'] is String) result = responseData['result'];
     }
-    return ApiResponseException(statusCode: dioException.response?.statusCode ?? -1, message: message, errors: errors, /*result: result*/);
+    return ApiResponseException(statusCode: dioException.response?.statusCode ?? -1, message: message, /*result: result*/);
   }
 }

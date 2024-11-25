@@ -25,7 +25,7 @@ base class UnauthorizedException extends ApiException {
 
 base class ApiResponseException extends ApiException {
   final int statusCode;
-  final List<Map<String, dynamic>>? errors;
+ // final List<Map<String, dynamic>>? errors;
   final MessageModel? data;
 
   //final String? result;
@@ -33,7 +33,7 @@ base class ApiResponseException extends ApiException {
   const ApiResponseException({
     required this.statusCode,
     super.message,
-    this.errors,
+   // this.errors,
     this.data,
     //this.result,
   });
@@ -42,7 +42,7 @@ base class ApiResponseException extends ApiException {
     return ApiResponseException(
         statusCode: json['status_code'] as int,
         message: json['message'] as String?,
-        errors: json['errors'] as List<Map<String, dynamic>>?,
+      //  errors: json['errors'] as List<Map<String, dynamic>>?,
         data : json['data'] as MessageModel,
       // result: json['result'] as String,
     );
@@ -52,7 +52,7 @@ base class ApiResponseException extends ApiException {
     return {
       'status_code': statusCode,
       'message': message,
-      'errors': errors,
+     // 'errors': errors,
       'data':data,
       //'result': result,
     };
@@ -60,7 +60,7 @@ base class ApiResponseException extends ApiException {
 
   @override
   String toString() =>
-      "$runtimeType(statusCode: $statusCode, message: $message, errors: $errors,data:${data?.error})";
+      "$runtimeType(statusCode: $statusCode, message: $message, data:${data?.error})";
 
   ApiResponseException copyWith({
     int? statusCode,
@@ -72,7 +72,7 @@ base class ApiResponseException extends ApiException {
     return ApiResponseException(
       statusCode: statusCode ?? this.statusCode,
       message: message ?? this.message,
-      errors: errors ?? this.errors,
+    //  errors: errors ?? this.errors,
       data: data ?? this.data,
       //result: result ?? this.result,
     );

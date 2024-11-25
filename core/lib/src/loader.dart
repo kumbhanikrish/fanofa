@@ -7,7 +7,7 @@ class LoadingDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () => Future.value(false),
-      child: const Dialog(
+      child:  Dialog(
           // alignment: Alignment.center,
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -20,7 +20,7 @@ class LoadingDialog extends StatelessWidget {
               color: Colors.transparent,
               child: SizedBox.square(
                 dimension: 84,
-                child: Center(child: LoadingIndicator()),
+                child: Center(child: Image.asset("assets/gifs/Loading.gif"),),
               ),
             ),
           )),

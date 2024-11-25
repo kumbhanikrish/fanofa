@@ -35,7 +35,8 @@ abstract class AppTheme {
       onSurfaceVariant: Color(0xFFD5F1FF),
       outlineVariant: Color(0xFF648DDB),
       onInverseSurface: Color(0xFF83898C),
-      shadow: Color(0xFFF1F1F1)
+      shadow: Color(0xFFF1F1F1),
+      primaryFixedDim: Color(0xFFECECEC)
     );
     return ThemeData(
       useMaterial3: false,
@@ -147,7 +148,7 @@ abstract class AppTheme {
 
   static AppBarTheme appBarTheme(ColorScheme colorScheme) {
     return AppBarTheme(
-      backgroundColor: colorScheme.background,
+      backgroundColor: colorScheme.surface,
       foregroundColor: colorScheme.onPrimary,
       centerTitle: true,
       titleSpacing: 0,

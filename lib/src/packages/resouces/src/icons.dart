@@ -18,6 +18,9 @@ abstract class AppIcons {
   static const String dropdown = '${_path}drop_down.svg';
   static const String close = '${_path}close.svg';
   static const String watchIcon = '${_path}watch.svg';
+  static const String downIcon = '${_path}down.svg';
+  static const String successBg = '${_path}sucess.svg';
+  static const String backIcon = '${_path}back_icon.svg';
 }
 
 abstract class MainViewIcons {

@@ -65,6 +65,9 @@ dependencies:
   event_bus: ^2.0.1
   cached_network_image: ^3.4.1
   app_links: ^6.3.2
+  recaptcha_enterprise_flutter: ^18.6.1
+  flutter_gcaptcha_v3: ^2.1.1
+  flutter_recaptcha_v2_compat: ^1.0.5
 
 
 dev_dependencies:
@@ -86,6 +89,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/gifs/
 
   fonts:
     - family: Poppins

@@ -43,9 +43,9 @@ abstract class NetworkModule {
       headers: {
         HttpHeaders.acceptHeader: Headers.jsonContentType,
         HttpHeaders.contentTypeHeader: Headers.jsonContentType,
-        'device-type': _deviceType,
-        'version-name': packageInfo.version,
-        'version-code': packageInfo.buildNumber,
+       // 'device-type': _deviceType,
+       // 'version-name': packageInfo.version,
+       // 'version-code': packageInfo.buildNumber,
       },
     );
 

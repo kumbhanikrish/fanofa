@@ -23,13 +23,13 @@ class CompleteProfileCubit extends BaseCubit<CompleteProfileState> {
 
   void incrementStep() {
     if (state.currentStep < state.totalSteps) {
-      emit(state.copyWith(currentStep: state.currentStep++));
+      emit(state.copyWith(currentStep: state.currentStep + 1));
     }
   }
 
   void decrement() {
     if (state.currentStep > 1) {
-      emit(state.copyWith(currentStep: state.currentStep--));
+      emit(state.copyWith(currentStep: state.currentStep-1));
     }
   }
 

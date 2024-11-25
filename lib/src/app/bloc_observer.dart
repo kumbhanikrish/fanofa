@@ -36,6 +36,7 @@ class AppBlocObserver extends BlocObserver with SingletonsMixin {
       return showErrorMessage(context: context, title: context.l10n.labelOops, content: context.l10n.errorTimeout);
     }
     if (exception is InternetConnectionException) {
+      print("connectionErrors");
       return showErrorMessage(context: context, title: context.l10n.labelOops, content: context.l10n.errorNoInternet);
     }
     if (exception is UnauthorizedException) {

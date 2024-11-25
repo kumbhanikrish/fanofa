@@ -57,6 +57,7 @@ class PrimaryButton extends StatelessWidget {
   final Color? backgroundColor;
   final EdgeInsets? padding;
   final double? fontSize;
+  final Gradient? gradient;
 
   const PrimaryButton({
     super.key,
@@ -65,6 +66,7 @@ class PrimaryButton extends StatelessWidget {
     this.backgroundColor,
     this.padding,
     this.fontSize,
+    this.gradient,
   });
 
   @override
@@ -72,6 +74,7 @@ class PrimaryButton extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     return _Button(
       label: label,
+      gradient: gradient,
       onPressed: onPressed,
       backgroundColor: backgroundColor ?? colorScheme.primary,
       foregroundColor: colorScheme.onPrimary,
@@ -186,12 +189,14 @@ class _Button extends StatelessWidget {
   final EdgeInsets? padding;
   final OutlinedBorder? shape;
   final double? fontSize;
+  final Gradient ? gradient;
 
   const _Button({
     required this.onPressed,
     required this.label,
     this.backgroundColor,
     this.foregroundColor,
+    this.gradient,
     this.textColor,
     this.fontWeight,
     this.shape,
@@ -203,7 +208,7 @@ class _Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: AppGradients.of(context).enabledButton,
+        gradient: gradient ??  AppGradients.of(context).enabledButton,
         borderRadius: BorderRadius.circular(16),
       ),
       child: ElevatedButton(

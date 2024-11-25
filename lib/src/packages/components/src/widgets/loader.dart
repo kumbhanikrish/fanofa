@@ -1,9 +1,10 @@
+import 'package:fanofa/src/packages/resouces/src/lotties.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 import 'image.dart';
 
-class LoadingDialog extends StatelessWidget {
+/*class LoadingDialog extends StatelessWidget {
   const LoadingDialog({super.key});
 
   @override
@@ -21,14 +22,14 @@ class LoadingDialog extends StatelessWidget {
                 dimension: 84,
                 child: Padding(
                   padding: EdgeInsets.all(22.0),
-                  child: CircularProgressIndicator.adaptive(),
+                  child: ImageFromAsset(GifsIcons.loader),
                 ),
               ),
             ),
           )),
     );
   }
-}
+}*/
 
 class LoadingIndicator extends StatelessWidget {
   const LoadingIndicator({super.key});

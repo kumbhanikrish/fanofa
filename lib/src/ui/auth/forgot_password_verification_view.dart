@@ -88,8 +88,7 @@ class _ForgotPasswordVerificationViewState
             const Gap(38),
             PrimaryButton(
               onPressed: () {
-                context.navigator
-                    .pushNamed(ResetPasswordView.routeName);
+                context.navigator.pushNamed(ResetPasswordView.routeName);
               },
               label: "Verify Code",
               gradient: AppGradients.of(context).disabledButton,
@@ -100,8 +99,7 @@ class _ForgotPasswordVerificationViewState
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text:
-                      'Haven’t got the email yet?',
+                      text: 'Haven’t got the email yet?',
                       style: TextStyle(
                         color: context.colorScheme.surfaceTint,
                         fontFamily: AppTheme.kFontFamily,
@@ -111,9 +109,7 @@ class _ForgotPasswordVerificationViewState
                     ),
                     TextSpan(
                       text: " Resend email",
-                      recognizer: TapGestureRecognizer()..onTap = (){
-
-                      },
+                      recognizer: TapGestureRecognizer()..onTap = () {},
                       style: TextStyle(
                         color: context.colorScheme.primary,
                         fontFamily: AppTheme.kFontFamily,

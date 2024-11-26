@@ -5,5 +5,4 @@ abstract class AppImages {
   static const background = "${_path}background.svg";
   static const banner = "${_path}banner.png";
   static const cake_banner = "${_path}cake_banner.png";
-
 }

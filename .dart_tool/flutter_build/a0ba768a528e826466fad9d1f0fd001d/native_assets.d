@@ -1,0 +1,1 @@
+ K:\\fanofa\\.dart_tool\\flutter_build\\a0ba768a528e826466fad9d1f0fd001d\\native_assets.yaml: 

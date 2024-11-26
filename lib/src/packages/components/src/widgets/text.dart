@@ -17,10 +17,12 @@ class CommonText extends StatelessWidget {
   final TextDecoration? decoration;
   final String? fontFamily;
   final Color? decorationColor;
+  final VoidCallback? onTap;
 
   const CommonText(
     this.text, {
     this.size = 12,
+    this.onTap,
     this.color,
     this.textAlign,
     this.overflow,
@@ -49,6 +51,7 @@ class CommonText extends StatelessWidget {
     this.decoration,
     super.key,
     this.decorationColor,
+    this.onTap,
   }) : fontWeight = FontWeight.w800;
 
   const CommonText.bold(
@@ -65,6 +68,7 @@ class CommonText extends StatelessWidget {
     this.decoration,
     super.key,
     this.decorationColor,
+    this.onTap,
   }) : fontWeight = FontWeight.w700;
 
   const CommonText.semiBold(
@@ -81,6 +85,7 @@ class CommonText extends StatelessWidget {
     this.decoration,
     super.key,
     this.decorationColor,
+    this.onTap,
   }) : fontWeight = FontWeight.w600;
 
   const CommonText.medium(
@@ -97,6 +102,7 @@ class CommonText extends StatelessWidget {
     this.decoration,
     super.key,
     this.decorationColor,
+    this.onTap,
   }) : fontWeight = FontWeight.w500;
 
   const CommonText.regular(
@@ -113,6 +119,7 @@ class CommonText extends StatelessWidget {
     this.decoration,
     super.key,
     this.decorationColor,
+    this.onTap,
   }) : fontWeight = FontWeight.w400;
 
   const CommonText.light(
@@ -129,6 +136,7 @@ class CommonText extends StatelessWidget {
     this.decoration,
     super.key,
     this.decorationColor,
+    this.onTap,
   }) : fontWeight = FontWeight.w300;
 
   @override
@@ -136,25 +144,28 @@ class CommonText extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final defaultTextStyle = DefaultTextStyle.of(context);
 
-    return Text(
-      text,
-      textAlign: textAlign,
-      overflow: overflow,
-      maxLines: maxLines,
-      softWrap: true,
-      style: defaultTextStyle.style.copyWith(
-        fontFamily: fontFamily ?? AppTheme.kFontFamily,
-        color: color ?? colorScheme.surfaceTint,
-        fontSize: size,
-        fontFeatures: [const FontFeature.tabularFigures()],
-        fontStyle: isItalic ? FontStyle.italic : null,
-        fontWeight: fontWeight,
-        height: height,
-        letterSpacing: letterSpacing ?? 0,
-        decoration: decoration,
-        decorationColor: decorationColor ?? colorScheme.onPrimary,
-        inherit: true,
-        textBaseline: TextBaseline.alphabetic,
+    return GestureDetector(
+      onTap: onTap,
+      child: Text(
+        text,
+        textAlign: textAlign,
+        overflow: overflow,
+        maxLines: maxLines,
+        softWrap: true,
+        style: defaultTextStyle.style.copyWith(
+          fontFamily: fontFamily ?? AppTheme.kFontFamily,
+          color: color ?? colorScheme.surfaceTint,
+          fontSize: size,
+          fontFeatures: [const FontFeature.tabularFigures()],
+          fontStyle: isItalic ? FontStyle.italic : null,
+          fontWeight: fontWeight,
+          height: height,
+          letterSpacing: letterSpacing ?? 0,
+          decoration: decoration,
+          decorationColor: decorationColor ?? colorScheme.onPrimary,
+          inherit: true,
+          textBaseline: TextBaseline.alphabetic,
+        ),
       ),
     );
   }

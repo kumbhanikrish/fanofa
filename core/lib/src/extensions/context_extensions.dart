@@ -27,7 +27,6 @@ extension $BuildContextExtension on BuildContext {
 
   double get textScaleFactor => mediaQuery.textScaleFactor;
 
-
   Object? get args => ModalRoute.of(this)?.settings.arguments;
 
   TextDirection get textDirection => Directionality.of(this);

@@ -10,7 +10,7 @@ abstract class AppIcons {
   static const String eyeShow = '${_path}eye_view.svg';
   static const String mail = '${_path}mail.svg';
 
- // static const String iconBack = '${_path}icn_back.svg';
+  // static const String iconBack = '${_path}icn_back.svg';
   static const String iconLeft = '${_path}Left.png';
   static const String placeHolder = '${_path}profile_placeholder.png';
   static const String arrowDown = '${_path}arrow_down.svg';
@@ -21,6 +21,11 @@ abstract class AppIcons {
   static const String downIcon = '${_path}down.svg';
   static const String successBg = '${_path}sucess.svg';
   static const String backIcon = '${_path}back_icon.svg';
+  static const String locationFrame = '${_path}Frame.svg';
+  static const String home = '${_path}home.svg';
+  static const String user = '${_path}user.svg';
+  static const String videoHorizontal = '${_path}video-horizontal.svg';
+  static const String menu = '${_path}menu.svg';
 }
 
 abstract class MainViewIcons {

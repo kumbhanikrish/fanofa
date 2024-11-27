@@ -8,6 +8,7 @@ import 'package:fanofa/src/logic/auth/register/register_cubit.dart';
 import 'package:fanofa/src/packages/components/components.dart';
 import 'package:fanofa/src/packages/resouces/resources.dart';
 import 'package:fanofa/src/ui/auth/complete_profile.dart';
+import 'package:fanofa/src/ui/auth/login_view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -48,11 +49,14 @@ class _RegisterViewState extends State<RegisterView>
   String getMaskedPhoneNumber(String phone) {
     return phone.replaceRange(2, phone.length - 2, '*' * (phone.length - 4));
   }
+
   late int remainingSeconds;
   Timer? timer;
   AnimationController? controller;
 
-  Duration get duration => (controller?.duration ?? const Duration(seconds: 30)) * (controller?.value ?? 0.0);
+  Duration get duration =>
+      (controller?.duration ?? const Duration(seconds: 30)) *
+      (controller?.value ?? 0.0);
 
   @override
   void initState() {
@@ -61,6 +65,7 @@ class _RegisterViewState extends State<RegisterView>
 
     super.initState();
   }
+
   void startTimer() {
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (remainingSeconds > 0) {
@@ -78,6 +83,7 @@ class _RegisterViewState extends State<RegisterView>
     timer?.cancel(); // Cancel the timer when the widget is disposed
     super.dispose();
   }
+
   void verifyAccountSheet(BuildContext context) {
     showBottomSheet(
       enableDrag: true,
@@ -206,7 +212,7 @@ class _RegisterViewState extends State<RegisterView>
                 const Gap(11),
                 PrimaryButton(
                   onPressed: () {
-                  //  cubit.register();
+                    //  cubit.register();
                     context.navigator.pushNamed(CompleteProfileView.routeName);
                     /*showModalBottomSheet(
                       enableDrag: true,
@@ -285,12 +291,12 @@ class _RegisterViewState extends State<RegisterView>
                                   OtpInputField(
                                     controller: state.otpController,
                                     length: 6,
-                                    *//*  onChanged: (value) {
+                                    */ /*  onChanged: (value) {
                                       print("Changed: $value");
                                     },
                                     onCompleted: (value) {
                                       print("Completed: $value");
-                                    },*//*
+                                    },*/ /*
                                     validator: (value) {
                                       if (value == null || value.length < 6) {
                                         return 'Please enter all 6 digits';
@@ -303,8 +309,8 @@ class _RegisterViewState extends State<RegisterView>
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Container(
-                                       *//* height: 21,
-                                        width: 88,*//*
+                                       */ /* height: 21,
+                                        width: 88,*/ /*
                                         padding: const EdgeInsets.symmetric(horizontal: 19.81,vertical: 4.92,),
                                         decoration: BoxDecoration(
                                           color: context
@@ -389,8 +395,12 @@ class _RegisterViewState extends State<RegisterView>
                       color: context.colorScheme.tertiary,
                       size: 12,
                     ),
+                    Gap(10),
                     CommonText.bold(
                       "Log in",
+                      onTap: () {
+                        context.navigator.pushNamed(LoginView.routeName);
+                      },
                       color: context.colorScheme.onSecondary,
                       size: 12,
                       decoration: TextDecoration.underline,

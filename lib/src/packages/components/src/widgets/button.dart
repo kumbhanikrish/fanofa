@@ -92,15 +92,19 @@ class SecondaryButton extends StatelessWidget {
   final FontWeight? fontWeight;
   final double? fontSize;
   final EdgeInsets? padding;
+  final OutlinedBorder? shape;
+  final BorderRadiusGeometry? borderRadius;
 
   const SecondaryButton({
     super.key,
     required this.onPressed,
     required this.label,
     this.backgroundColor,
+    this.borderRadius,
     this.textColor,
     this.fontWeight,
     this.fontSize,
+    this.shape,
     this.padding,
   });
 
@@ -109,18 +113,20 @@ class SecondaryButton extends StatelessWidget {
     //final colorScheme = Theme.of(context).colorScheme;
     return Container(
       decoration: BoxDecoration(
-        gradient: AppGradients.of(context).disabledButton,
-        borderRadius: BorderRadius.circular(16),
+        //  gradient: AppGradients.of(context).disabledButton,
+        borderRadius: borderRadius ?? BorderRadius.circular(16),
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.transparent,
+          backgroundColor: backgroundColor,
+          shape: shape,
           shadowColor: Colors.transparent,
           foregroundColor: Colors.transparent,
-          padding: padding ?? const EdgeInsets.symmetric(
-            vertical: 13,
-            horizontal: 10,
-          ),
+          padding: padding ??
+              const EdgeInsets.symmetric(
+                vertical: 13,
+                horizontal: 10,
+              ),
           //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         ),
         onPressed: onPressed,
@@ -189,7 +195,7 @@ class _Button extends StatelessWidget {
   final EdgeInsets? padding;
   final OutlinedBorder? shape;
   final double? fontSize;
-  final Gradient ? gradient;
+  final Gradient? gradient;
 
   const _Button({
     required this.onPressed,
@@ -208,7 +214,7 @@ class _Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: gradient ??  AppGradients.of(context).enabledButton,
+        gradient: gradient ?? AppGradients.of(context).enabledButton,
         borderRadius: BorderRadius.circular(16),
       ),
       child: ElevatedButton(
@@ -253,7 +259,7 @@ class BorderButton extends StatelessWidget {
     return ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        backgroundColor: colorScheme.background,
+        backgroundColor: colorScheme.surface,
         shape: RoundedRectangleBorder(
           side: BorderSide(
             color: colorScheme.surfaceTint,
